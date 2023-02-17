@@ -1,5 +1,11 @@
 pipeline {
     agent any
+    environment {
+        SONARQUBE_URL = 'http://loclahost'
+        SONARQUBE_PORT = '9000'
+
+    }
+
     
 
     stages {
@@ -50,7 +56,7 @@ pipeline {
             steps {
                 sh "mvn clean verify sonar:sonar \
   -Dsonar.projectKey=mavensonar \
-  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.host.url=$SONARQUBE_URL:$SONARQUBE_PORT \
   -Dsonar.login=sqp_75d14dde080f014d4ee9d6e9d4e5e090b8100750"
                     }
          }        
