@@ -6,6 +6,11 @@ pipeline {
 
     }
 
+            }
+        }
+        stage('Build') {
+            parallel {
+                stage('Compile') {
     
 /*
 commentaire
@@ -14,11 +19,6 @@ commentaire
         stage('SCM') {
             steps {
                 checkout scm
-            }
-        }
-        stage('Build') {
-            parallel {
-                stage('Compile') {
                     agent {
                         docker {
                             image 'maven:3.6.0-jdk-8-alpine'
@@ -56,7 +56,7 @@ commentaire
         
         stage('SonarQube') {
         when {
-            anyOf { branch 'master'; branch 'sonar' }
+            anyOf { branch 'master' }
             }
             
             steps {
