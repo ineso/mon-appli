@@ -46,6 +46,15 @@ pipeline {
             }
         }
         
+        stage('SonarQube') {
+            steps {
+                sh "mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=mavensonar \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.login=sqp_75d14dde080f014d4ee9d6e9d4e5e090b8100750"
+                    }
+         }        
+        
        
 
         
