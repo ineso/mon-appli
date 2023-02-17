@@ -7,7 +7,9 @@ pipeline {
     }
 
     
-
+/*
+commentaire
+*/
     stages {
         stage('SCM') {
             steps {
