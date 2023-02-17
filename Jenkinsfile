@@ -6,19 +6,17 @@ pipeline {
 
     }
 
-            
-        
-        stage('Build') {
-            parallel {
-                stage('Compile') {
     
-/*
-commentaire
-*/
+
     stages {
         stage('SCM') {
             steps {
                 checkout scm
+            }
+        }
+        stage('Build') {
+            parallel {
+                stage('Compile') {
                     agent {
                         docker {
                             image 'maven:3.6.0-jdk-8-alpine'
@@ -54,15 +52,15 @@ commentaire
             }
         }
         
-        stage('SonarQube') {            
+        stage('SonarQube') {
             steps {
                 sh "mvn clean verify sonar:sonar \
   -Dsonar.projectKey=mavensonar \
   -Dsonar.host.url=$SONARQUBE_URL:$SONARQUBE_PORT \
   -Dsonar.login=sqp_75d14dde080f014d4ee9d6e9d4e5e090b8100750"
-                    
+                    }
          }        
-        }
+        
        
 
         
