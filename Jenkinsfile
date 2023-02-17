@@ -61,16 +61,7 @@ pipeline {
                     }
          }   
         
-        stage('Findbugs') {
-            steps {
-                sh ' mvn findbugs:findbugs'
-             }
-             post {
-                always {
-                    recordIssues enabledForFailure: true, tool: spotBugs(pattern: 'target/findbugsXml.xml')
-                }
-            }
-         }
+
         
        
 
