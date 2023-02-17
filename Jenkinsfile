@@ -55,9 +55,9 @@ commentaire
         }
         
         stage('SonarQube') {
-        when {
-            anyOf { branch 'master' }
-            }
+        when 
+             { branch 'sonar' }
+            
             
             steps {
                 sh "mvn clean verify sonar:sonar \
