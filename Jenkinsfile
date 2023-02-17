@@ -1,10 +1,10 @@
 pipeline {
     agent any
-    /*environment {
+    environment {
         SONARQUBE_URL = 'http://localhost'
         SONARQUBE_PORT = '9000'
 
-    }*/
+    }
 
     
 
@@ -30,7 +30,7 @@ pipeline {
             }
         }
         
-        /*stage('Test') { 
+        stage('Test') { 
             steps {
                 sh 'mvn test' 
             }
@@ -59,7 +59,7 @@ pipeline {
   -Dsonar.host.url=$SONARQUBE_URL:$SONARQUBE_PORT \
   -Dsonar.login=sqp_75d14dde080f014d4ee9d6e9d4e5e090b8100750"
                     }
-         }   */
+         }   
         
         stage('Findbugs') {
             steps {
