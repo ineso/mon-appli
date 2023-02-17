@@ -54,11 +54,7 @@ commentaire
             }
         }
         
-        stage('SonarQube') {
-        when 
-             { branch 'sonar' }
-            
-            
+        stage('SonarQube') {            
             steps {
                 sh "mvn clean verify sonar:sonar \
   -Dsonar.projectKey=mavensonar \
