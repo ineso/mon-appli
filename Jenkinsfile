@@ -67,7 +67,7 @@ pipeline {
              }
              post {
                 always {
-                    recordIssues enabledForFailure: true, tool: spotBugs(pattern: '**/target/findbugsXml.xml')
+                    recordIssues enabledForFailure: true, tool: spotBugs(pattern: 'target/findbugsXml.xml')
                 }
             }
          }
